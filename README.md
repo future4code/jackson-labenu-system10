@@ -31,3 +31,59 @@ As funcionalidades básicas são:
 → Adicionar docente na turma;
 
 → Pegar a idade de algum estudante a partir do id
+
+## Tabelas criadas
+
+```
+CREATE TABLE Student (
+    id INT PRIMARY KEY NOT NULL, 
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(50) NOT NULL,
+    birth_date date NOT NULL,
+    mission_id INT,
+    FOREIGN KEY (mission_id) REFERENCES Mission(id)
+);
+```
+
+```
+CREATE TABLE Teacher (
+    id INT PRIMARY KEY NOT NULL, 
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(50) NOT NULL,
+    birth_date date NOT NULL,
+    mission_id INT,
+    FOREIGN KEY (mission_id) REFERENCES Mission(id)
+);
+
+
+```
+CREATE TABLE Hobby (
+    id INT PRIMARY KEY NOT NULL, 
+    name VARCHAR(100) NOT NULL
+);
+```
+
+```
+CREATE TABLE Speciality (
+    id INT PRIMARY KEY NOT NULL, 
+    name VARCHAR(100) NOT NULL
+);
+```
+
+```
+CREATE TABLE Student_Hobby (
+    student_id INT NOT NULL, 
+    hobby_id INT NOT NULL,
+    FOREIGN KEY (student_id ) REFERENCES Student(id),
+    FOREIGN KEY (hobby_id ) REFERENCES Hobby(id)
+);
+```
+
+```
+CREATE TABLE Teacher_Speciality (
+    teacher_id INT NOT NULL, 
+    speciality_id INT NOT NULL,
+    FOREIGN KEY (teacher_id ) REFERENCES Teacher(id),
+    FOREIGN KEY (speciality_id ) REFERENCES Speciality(id)
+);
+```
