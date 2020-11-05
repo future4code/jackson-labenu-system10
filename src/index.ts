@@ -6,6 +6,7 @@ import { AddressInfo } from "net";
 import { createStudent } from "./endpoints/createStudent";
 import { createTeacher } from "./endpoints/createTeacher";
 import { createMission } from "./endpoints/createMission";
+import { addStudentMission } from "./endpoints/addStudentMission";
 
 dotenv.config();
 
@@ -28,6 +29,7 @@ app.use(cors());
 app.post("/student", createStudent)
 app.post("/teacher", createTeacher)
 app.post("/mission", createMission)
+app.put("/student/mission", addStudentMission)
 
 
 
